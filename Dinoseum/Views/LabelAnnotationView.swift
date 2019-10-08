@@ -51,7 +51,7 @@ class LabelAnnotationView: MKAnnotationView {
         point.centerXAnchor.constraint(equalTo: label.centerXAnchor).isActive = true
         point.bottomAnchor.constraint(equalTo: label.topAnchor).isActive = true
         
-        // Adjust the view's center offset so that it is anchored on the point. Shit the callout view to appear right above the point.
+        // Adjust the view's center offset so that it is anchored on the point. Shift the callout view to appear right above the point.
         centerOffset = CGPoint(x: 0, y: label.font.lineHeight / 2 )
         calloutOffset = CGPoint(x: 0, y: -radius)
         canShowCallout = true
