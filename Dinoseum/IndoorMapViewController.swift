@@ -10,10 +10,14 @@ import CoreLocation
 import MapKit
 
 class IndoorMapViewController: UIViewController, MKMapViewDelegate, LevelPickerDelegate {
+  //MARK: - IBOutlets
     @IBOutlet var mapView: MKMapView!
     private let locationManager = CLLocationManager()
     @IBOutlet var levelPicker: LevelPickerView!
-    
+  
+  //MARK: - Properties
+  var currentLocation: CLLocation?
+  
     var venue: Venue?
     private var levels: [Level] = []
     private var currentLevelFeatures = [StylableFeature]()
@@ -29,6 +33,10 @@ class IndoorMapViewController: UIViewController, MKMapViewDelegate, LevelPickerD
 
         // Request location authorization so the user's current location can be displayed on the map
         locationManager.requestWhenInUseAuthorization()
+      locationManager.delegate = self
+      locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+      locationManager.allowsBackgroundLocationUpdates = true
+      locationManager.requestLocation()
 
         self.mapView.delegate = self
         self.mapView.register(PointAnnotationView.self, forAnnotationViewWithReuseIdentifier: pointAnnotationViewIdentifier)
@@ -69,6 +77,8 @@ class IndoorMapViewController: UIViewController, MKMapViewDelegate, LevelPickerD
         
         // Setup the level picker with the shortName of each level
         setupLevelPicker()
+      
+      
     }
     
     private func showFeaturesForOrdinal(_ ordinal: Int) {
@@ -205,4 +215,29 @@ class IndoorMapViewController: UIViewController, MKMapViewDelegate, LevelPickerD
         let selectedLevel = self.levels[selectedIndex]
         showFeaturesForOrdinal(selectedLevel.properties.ordinal)
     }
+}
+
+extension IndoorMapViewController: CLLocationManagerDelegate {
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    guard let currentLocation = locations.first else { return }
+    self.currentLocation = currentLocation
+    print("🗺 \(currentLocation.coordinate.latitude) \(currentLocation.coordinate.longitude)")
+    print(currentLocation)
+//    guard let distanceInMeters = selectedPlace?.location.distance(from: currentLocation) else { return }
+//    let distance = Measurement(value: distanceInMeters, unit: UnitLength.meters).converted(to: .miles)
+//    locationDistance.text = "\(distance)"
+    
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    
+    if status == .authorizedWhenInUse || status == .authorizedAlways {
+      locationManager.startUpdatingLocation()
+    }
+    
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    print(error)
+  }
 }
