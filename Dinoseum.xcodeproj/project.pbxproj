@@ -26,6 +26,7 @@
 		7EEA2CC221CBF3BB005539F2 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA2CC121CBF3BB005539F2 /* Level.swift */; };
 		7EEA2CC421CBF454005539F2 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEA2CC321CBF454005539F2 /* Venue.swift */; };
 		7EEBCE8B21AD3B0E00FF4181 /* IMDFDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEBCE8A21AD3B0D00FF4181 /* IMDFDecoder.swift */; };
+		DB5FFF6C256726FA00C70F30 /* Custom.gpx in Resources */ = {isa = PBXBuildFile; fileRef = DB5FFF6B256726FA00C70F30 /* Custom.gpx */; };
 		F70CE090228B5B4D007056C6 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70CE08F228B5B4D007056C6 /* Anchor.swift */; };
 		F712C6332262725500F3AFFB /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712C6322262725500F3AFFB /* Feature.swift */; };
 		F77FB50D2276FE70006F9FD0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F77FB50C2276FE70006F9FD0 /* README.md */; };
@@ -56,6 +57,7 @@
 		7EEA2CC121CBF3BB005539F2 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		7EEA2CC321CBF454005539F2 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		7EEBCE8A21AD3B0D00FF4181 /* IMDFDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDFDecoder.swift; sourceTree = "<group>"; };
+		DB5FFF6B256726FA00C70F30 /* Custom.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Custom.gpx; sourceTree = "<group>"; };
 		DBAD5E0B255E029000263AA4 /* GPX File example.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GPX File example.gpx"; sourceTree = "<group>"; };
 		DBBAE0E5255E0C91007F0A34 /* 12-Nov-2020-1632.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "12-Nov-2020-1632.gpx"; sourceTree = "<group>"; };
 		DBBAE0E7255E166C007F0A34 /* San Jose Convention Center.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "San Jose Convention Center.gpx"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				DBBAE0E7255E166C007F0A34 /* San Jose Convention Center.gpx */,
+				DB5FFF6B256726FA00C70F30 /* Custom.gpx */,
 				DBBAE0E5255E0C91007F0A34 /* 12-Nov-2020-1632.gpx */,
 				DBAD5E0B255E029000263AA4 /* GPX File example.gpx */,
 				F77FB50C2276FE70006F9FD0 /* README.md */,
@@ -239,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB5FFF6C256726FA00C70F30 /* Custom.gpx in Resources */,
 				7E61CF0A215E1FF600EAD172 /* LaunchScreen.storyboard in Resources */,
 				7E61CF07215E1FF600EAD172 /* Assets.xcassets in Resources */,
 				F77FB50D2276FE70006F9FD0 /* README.md in Resources */,

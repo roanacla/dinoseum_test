@@ -78,9 +78,26 @@ class IndoorMapViewController: UIViewController, MKMapViewDelegate, LevelPickerD
         // Setup the level picker with the shortName of each level
         setupLevelPicker()
       
-      
     }
+  @IBAction func showRoute(_ sender: Any) {
+    loadDirections()
+  }
+  
+  //MARK: - Functions
+  private func loadDirections() {
+//    guard let start = currentLocation else { return }
+    var points: [CLLocationCoordinate2D] = []
+    points.append(CLLocationCoordinate2DMake(37.328249, -121.889695))
+    points.append(CLLocationCoordinate2DMake(37.328954, -121.890237))
+    points.append(CLLocationCoordinate2DMake(37.329225, -121.889656))
+    points.append(CLLocationCoordinate2DMake(37.329155, -121.889556))
+    points.append(CLLocationCoordinate2DMake(37.329655, -121.888656))
+    points.append(CLLocationCoordinate2DMake(37.33, -121.888950))
+    let polygon = MKPolygon(coordinates: &points, count: points.count)
+    mapView.addOverlay(polygon)
     
+  }
+  
     private func showFeaturesForOrdinal(_ ordinal: Int) {
         guard self.venue != nil else {
             return
@@ -135,8 +152,16 @@ class IndoorMapViewController: UIViewController, MKMapViewDelegate, LevelPickerD
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let shape = overlay as? (MKShape & MKGeoJSONObject),
-            let feature = currentLevelFeatures.first( where: { $0.geometry.contains( where: { $0 == shape }) }) else {
+            let feature = currentLevelFeatures.first( where: { $0.geometry.contains( where: { $0 == shape  }) }) else {
+          if overlay is MKPolygon {
+            let polyLine = MKPolylineRenderer(overlay: overlay)
+            polyLine.strokeColor = UIColor.darkGray
+            polyLine.lineWidth = 4.0
+            return polyLine
+          } else {
+            
             return MKOverlayRenderer(overlay: overlay)
+          }
         }
 
         let renderer: MKOverlayPathRenderer
@@ -217,12 +242,14 @@ class IndoorMapViewController: UIViewController, MKMapViewDelegate, LevelPickerD
     }
 }
 
+
+//MARK: - LocationManager Delegate
 extension IndoorMapViewController: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     guard let currentLocation = locations.first else { return }
     self.currentLocation = currentLocation
-    print("🗺 \(currentLocation.coordinate.latitude) \(currentLocation.coordinate.longitude)")
-    print(currentLocation)
+//    print("🗺 \(currentLocation.coordinate.latitude) \(currentLocation.coordinate.longitude)")
+//    print(currentLocation)
 //    guard let distanceInMeters = selectedPlace?.location.distance(from: currentLocation) else { return }
 //    let distance = Measurement(value: distanceInMeters, unit: UnitLength.meters).converted(to: .miles)
 //    locationDistance.text = "\(distance)"
