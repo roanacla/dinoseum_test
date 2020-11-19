@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="Open GPX Tracker for iOS">
+	<wpt lat="37.404131003300414" lon="-122.0044097482922">
+		<time>2020-11-13T00:27:34Z</time>
+		<name>4:27:34 PM</name>
+		<desc>Nov 12, 2020 at 4:27:34 PM</desc>
+	</wpt>
+	<wpt lat="37.40416386833403" lon="-122.0023742213366">
+		<time>2020-11-13T00:27:57Z</time>
+		<name>4:27:57 PM</name>
+		<desc>Nov 12, 2020 at 4:27:57 PM</desc>
+	</wpt>
+	<wpt lat="37.40460228926281" lon="-122.00237163930588">
+		<time>2020-11-13T00:28:52Z</time>
+		<name>4:28:52 PM</name>
+		<desc>Nov 12, 2020 at 4:28:52 PM</desc>
+	</wpt>
+	<wpt lat="37.40458292733251" lon="-122.00440935037463">
+		<time>2020-11-13T00:29:36Z</time>
+		<name>4:29:36 PM</name>
+		<desc>Nov 12, 2020 at 4:29:36 PM</desc>
+	</wpt>
+	<trk>
+	</trk>
+</gpx>
